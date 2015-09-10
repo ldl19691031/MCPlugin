@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\MCTest.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{25B62962-C827-4E55-8FDE-3E9D6DBA16C3}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\MCTest.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\MCTestEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{A5FBE0B5-FBA0-4B88-A727-FD3489BE1729}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Plugins">
+      <UniqueIdentifier>{26C27FA3-4A36-4C35-87F9-02AAF6584F62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\MCplugin">
+      <UniqueIdentifier>{5FDD3DD5-BBC0-4AC5-9F8E-EF216FDD6ECC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\MCplugin\Source">
+      <UniqueIdentifier>{30820CEF-2C3C-459D-B7BB-B7D3403B4E8F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\MCplugin\Source\MCplugin">
+      <UniqueIdentifier>{149263B0-8AD7-4589-BABF-025F2D4C7A5B}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\MCplugin\Source\MCplugin\MCplugin.Build.cs">
+      <Filter>Plugins\MCplugin\Source\MCplugin</Filter>
+    </None>
+    <Filter Include="Plugins\MCplugin\Source\MCplugin\Private">
+      <UniqueIdentifier>{0F3B53AA-C301-4D11-A693-CA01FE1BE9E4}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\MCplugin\Source\MCplugin\Private\MCComponent.cpp">
+      <Filter>Plugins\MCplugin\Source\MCplugin\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\MCplugin\Source\MCplugin\Private\MCplugin.cpp">
+      <Filter>Plugins\MCplugin\Source\MCplugin\Private</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\MCplugin\Source\MCplugin\Private\MCpluginPrivatePCH.h">
+      <Filter>Plugins\MCplugin\Source\MCplugin\Private</Filter>
+    </ClInclude>
+    <Filter Include="Plugins\MCplugin\Source\MCplugin\Public">
+      <UniqueIdentifier>{7D803389-527B-4F3C-925D-1476ECE02EEB}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Plugins\MCplugin\Source\MCplugin\Public\MCComponent.h">
+      <Filter>Plugins\MCplugin\Source\MCplugin\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\MCplugin\Source\MCplugin\Public\MCplugin.h">
+      <Filter>Plugins\MCplugin\Source\MCplugin\Public</Filter>
+    </ClInclude>
+    <None Include="..\..\Plugins\MCplugin\MCplugin.uplugin">
+      <Filter>Plugins\MCplugin</Filter>
+    </None>
+    <Filter Include="Plugins\MCplugin\Resources">
+      <UniqueIdentifier>{76D21168-939F-4CEF-B8B1-04E0A1F015CE}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\MCplugin\Resources\Icon128.png">
+      <Filter>Plugins\MCplugin\Resources</Filter>
+    </None>
+    <Filter Include="Source\MCTest">
+      <UniqueIdentifier>{4E595884-23BE-433D-A9FE-AFE5AB71EDB7}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\MCTest\MCTest.Build.cs">
+      <Filter>Source\MCTest</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\MCTest\MCTest.cpp">
+      <Filter>Source\MCTest</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MCTest\MCTest.h">
+      <Filter>Source\MCTest</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MCTest\MCTestGameMode.cpp">
+      <Filter>Source\MCTest</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MCTest\MCTestGameMode.h">
+      <Filter>Source\MCTest</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SOV.h">
+      <Filter>Plugins\MCplugin\Source\MCplugin\Public</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
