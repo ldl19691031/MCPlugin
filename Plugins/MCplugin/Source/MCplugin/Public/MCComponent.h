@@ -1,5 +1,6 @@
 #pragma once
 #include "ProceduralMeshComponent.h"
+#include "SVO.h"
 #include "MCComponent.generated.h"
 
 UCLASS(hidecategories = (Object, LOD), meta = (BlueprintSpawnableComponent),  ClassGroup = Custom)

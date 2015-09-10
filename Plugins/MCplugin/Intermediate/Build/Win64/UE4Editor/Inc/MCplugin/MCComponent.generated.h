@@ -13,9 +13,9 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define MCPLUGIN_MCComponent_generated_h
 
-#define MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_8_RPC_WRAPPERS
-#define MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_8_RPC_WRAPPERS_NO_PURE_DECLS
-#define MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_8_INCLASS_NO_PURE_DECLS \
+#define MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_9_RPC_WRAPPERS
+#define MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_9_RPC_WRAPPERS_NO_PURE_DECLS
+#define MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_9_INCLASS_NO_PURE_DECLS \
 	private: \
 	static void StaticRegisterNativesUMCComponent(); \
 	friend MCPLUGIN_API class UClass* Z_Construct_UClass_UMCComponent(); \
@@ -26,7 +26,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	virtual UObject* _getUObject() const override { return const_cast<UMCComponent*>(this); }
 
 
-#define MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_8_INCLASS \
+#define MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_9_INCLASS \
 	private: \
 	static void StaticRegisterNativesUMCComponent(); \
 	friend MCPLUGIN_API class UClass* Z_Construct_UClass_UMCComponent(); \
@@ -37,7 +37,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	virtual UObject* _getUObject() const override { return const_cast<UMCComponent*>(this); }
 
 
-#define MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_8_STANDARD_CONSTRUCTORS \
+#define MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_9_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UMCComponent(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UMCComponent) \
@@ -49,7 +49,7 @@ private: \
 public:
 
 
-#define MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_8_ENHANCED_CONSTRUCTORS \
+#define MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_9_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private copy-constructor, should never be used */ \
 	NO_API UMCComponent(const UMCComponent& InCopy); \
@@ -59,23 +59,23 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UMCComponent); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UMCComponent)
 
 
-#define MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_5_PROLOG
-#define MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_8_GENERATED_BODY_LEGACY \
+#define MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_6_PROLOG
+#define MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_9_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_8_RPC_WRAPPERS \
-	MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_8_INCLASS \
-	MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_8_STANDARD_CONSTRUCTORS \
+	MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_9_RPC_WRAPPERS \
+	MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_9_INCLASS \
+	MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_9_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_POP
 
 
-#define MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_8_GENERATED_BODY \
+#define MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_9_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_8_RPC_WRAPPERS_NO_PURE_DECLS \
-	MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_8_INCLASS_NO_PURE_DECLS \
-	MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_8_ENHANCED_CONSTRUCTORS \
+	MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_9_RPC_WRAPPERS_NO_PURE_DECLS \
+	MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_9_INCLASS_NO_PURE_DECLS \
+	MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_9_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_POP
 
