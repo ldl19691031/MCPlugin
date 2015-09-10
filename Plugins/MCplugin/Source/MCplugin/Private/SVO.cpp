@@ -1,8 +1,10 @@
 #include "MCpluginPrivatePCH.h"
+#include "DrawDebugHelpers.h"
 #include "SVO.h"
 const float  FSVOTree::VoxelSize = 100.0f;
 FSVOTree::FSVOTree(){
 	RootNode = new OctreeNode<FVoxel>(FVector(0,0,0),102400.0f,nullptr);
+
 	//体素空间最大最小值
 	/*RootNode->Min = FVector(-102400.0f, -102400.0f, -102400.0f);
 	RootNode->Max = FVector(102400.0f, 102400.0f, 102400.0f);*/
@@ -21,6 +23,11 @@ void FSVOTree::AddAVoxel(FVector Location){
 void FSVOTree::AddAVoxelRecursion(OctreeNode<FVoxel>* CurrentNode, FVector Location){
 	////放缩包围盒,由于预先规定了大小限制所以不用放缩
 	//CurrentNode->ScaleBoundBox(Location);
+	if (World!=nullptr)
+	{
+		DrawDebugBox(World, CurrentNode->Center, FVector(CurrentNode->Size, CurrentNode->Size, CurrentNode->Size), FColor::Red,true,100.0f);
+	}
+
 
 	//判断当前节点是否为白，如果为白则调节为灰
 	if (CurrentNode->NodeType==White)
@@ -32,6 +39,7 @@ void FSVOTree::AddAVoxelRecursion(OctreeNode<FVoxel>* CurrentNode, FVector Locat
 	if (CurrentNode->IsLessThanEdge(VoxelSize))
 	{
 		CurrentNode->NodeType = Black;
+		DrawDebugSolidBox(World, CurrentNode->Center, FVector(CurrentNode->Size, CurrentNode->Size, CurrentNode->Size), FColor::Red, true, 100.0f);
 		return;
 	}
 
@@ -65,7 +73,16 @@ void FSVOTree::AddAVoxelRecursion(OctreeNode<FVoxel>* CurrentNode, FVector Locat
 	CurrentNode->Children[7] = new OctreeNode<FVoxel>(CurrentNode->Center + FVector(CurrentNode->Size / 2, CurrentNode->Size / 2,	CurrentNode->Size / 2), CurrentNode->Size / 2, CurrentNode);
 
 	//递归调用细分
-	for (auto p : CurrentNode->Children){
-		FSVOTree::AddAVoxelRecursion(p, Location);
+	for (int i = 0; i < 8;i++){
+		DrawDebugBox(World, CurrentNode->Children[i]->Center, FVector(CurrentNode->Children[i]->Size, CurrentNode->Children[i]->Size, CurrentNode->Children[i]->Size), FColor::Red, true, 100.0f);
+		GEngine->AddOnScreenDebugMessage(0, 10.0, FColor::White, CurrentNode->Children[i]->Center.ToString());
+		if (CurrentNode->Children[i]->IsInNode(Location)){
+			AddAVoxelRecursion(CurrentNode->Children[i], Location);
+			return;
+		}
+			
 	}
+}
+bool FSVOTree::HasVertex(FVector Location){
+	return RootNode->DoVoxelCheck(Location);
 }

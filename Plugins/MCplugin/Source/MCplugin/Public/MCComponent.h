@@ -9,4 +9,14 @@ class MCPLUGIN_API UMCComponent :public UProceduralMeshComponent
 	GENERATED_BODY()
 public:
 	UMCComponent();
+
+	UFUNCTION(BlueprintCallable, Category = "MCPlugin")
+		 void AddVoxel(FVector Point);
+
+	UFUNCTION(BlueprintCallable, Category = "MCPlugin")
+		void UpdateMesh();
+
+	virtual void BeginPlay() override;
+private:
+	TSharedPtr<FSVOTree> SVOTree;
 };

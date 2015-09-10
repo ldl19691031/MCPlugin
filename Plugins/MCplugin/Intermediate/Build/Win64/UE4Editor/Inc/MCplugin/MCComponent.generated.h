@@ -8,13 +8,44 @@
 #include "ObjectBase.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+struct FVector;
 #ifdef MCPLUGIN_MCComponent_generated_h
 #error "MCComponent.generated.h already included, missing '#pragma once' in MCComponent.h"
 #endif
 #define MCPLUGIN_MCComponent_generated_h
 
-#define MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_9_RPC_WRAPPERS
-#define MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_9_RPC_WRAPPERS_NO_PURE_DECLS
+#define MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_9_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execUpdateMesh) \
+	{ \
+		P_FINISH; \
+		this->UpdateMesh(); \
+	} \
+ \
+	DECLARE_FUNCTION(execAddVoxel) \
+	{ \
+		P_GET_STRUCT(FVector,Z_Param_Point); \
+		P_FINISH; \
+		this->AddVoxel(Z_Param_Point); \
+	}
+
+
+#define MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_9_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execUpdateMesh) \
+	{ \
+		P_FINISH; \
+		this->UpdateMesh(); \
+	} \
+ \
+	DECLARE_FUNCTION(execAddVoxel) \
+	{ \
+		P_GET_STRUCT(FVector,Z_Param_Point); \
+		P_FINISH; \
+		this->AddVoxel(Z_Param_Point); \
+	}
+
+
 #define MCTest_Plugins_MCplugin_Source_MCplugin_Public_MCComponent_h_9_INCLASS_NO_PURE_DECLS \
 	private: \
 	static void StaticRegisterNativesUMCComponent(); \
