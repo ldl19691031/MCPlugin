@@ -39,7 +39,9 @@ void FSVOTree::AddAVoxelRecursion(OctreeNode<FVoxel>* CurrentNode, FVector Locat
 	if (CurrentNode->IsLessThanEdge(VoxelSize))
 	{
 		CurrentNode->NodeType = Black;
-		DrawDebugSolidBox(World, CurrentNode->Center, FVector(CurrentNode->Size, CurrentNode->Size, CurrentNode->Size), FColor::Red, true, 100.0f);
+		DrawDebugBox(World, CurrentNode->Center, FVector(CurrentNode->Size, CurrentNode->Size, CurrentNode->Size), FColor::Blue, true, 100.0f);
+		//添加当前Voxel，并添加对应的Cell
+		CreateAVoxel(CurrentNode);
 		return;
 	}
 
@@ -85,4 +87,174 @@ void FSVOTree::AddAVoxelRecursion(OctreeNode<FVoxel>* CurrentNode, FVector Locat
 }
 bool FSVOTree::HasVertex(FVector Location){
 	return RootNode->DoVoxelCheck(Location);
+}
+void FSVOTree::CreateAVoxel(OctreeNode<FVoxel>* Node){
+
+	//@todo 优化这一段代码，不需要每次遍历整个Cell表
+	//首先生成一个Voxel信息
+	Node->Data = MakeShareable(new FVoxel());
+	//生成八个Cell
+	bool bIsAlreadyInList = false;
+	FCell* Cell;
+	//前左下
+	Cell = new FCell(Node->Center + FVector(-Node->Size, -Node->Size, -Node->Size), Node->Size);
+	Cell->CellType |= 0x40;//7号顶点
+	for (auto c:CellsList)
+	{
+		if (*c==*Cell)//当前创建的Cell已经存在
+		{
+			Node->Data->ContainedCells[0] = c;
+			c->CellType |= Cell->CellType;
+			bIsAlreadyInList = true;
+			delete Cell;
+			break;
+		}
+	}
+	//没有存在，向List添加新的Cell
+	if (!bIsAlreadyInList)
+	{
+		Node->Data->ContainedCells[0] = MakeShareable(Cell);
+		CellsList.Add(Node->Data->ContainedCells[0]);
+	}
+	//前右下
+	Cell = new FCell(Node->Center + FVector(-Node->Size, Node->Size, -Node->Size), Node->Size);
+	Cell->CellType |= 0x80;
+	for (auto c : CellsList)
+	{
+		if (*c == *Cell)//当前创建的Cell已经存在
+		{
+			Node->Data->ContainedCells[1] = c;
+			c->CellType |= Cell->CellType;
+			bIsAlreadyInList = true;
+			delete Cell;
+			break;
+		}
+	}
+	//没有存在，向List添加新的Cell
+	if (!bIsAlreadyInList)
+	{
+		Node->Data->ContainedCells[1] = MakeShareable(Cell);
+		CellsList.Add(Node->Data->ContainedCells[1]);
+	}
+	//前左上
+	Cell = new FCell(Node->Center + FVector(-Node->Size, -Node->Size, Node->Size), Node->Size);
+	Cell->CellType |= 0x20;
+	for (auto c : CellsList)
+	{
+		if (*c == *Cell)//当前创建的Cell已经存在
+		{
+			Node->Data->ContainedCells[2] = c;
+			c->CellType |= Cell->CellType;
+			bIsAlreadyInList = true;
+			delete Cell;
+			break;
+		}
+	}
+	//没有存在，向List添加新的Cell
+	if (!bIsAlreadyInList)
+	{
+		Node->Data->ContainedCells[2] = MakeShareable(Cell);
+		CellsList.Add(Node->Data->ContainedCells[2]);
+	}
+	//前右上
+	Cell = new FCell(Node->Center + FVector(-Node->Size, Node->Size, Node->Size), Node->Size);
+	Cell->CellType |= 0x10;
+	for (auto c : CellsList)
+	{
+		if (*c == *Cell)//当前创建的Cell已经存在
+		{
+			Node->Data->ContainedCells[3] = c;
+			c->CellType |= Cell->CellType;
+			bIsAlreadyInList = true;
+			delete Cell;
+			break;
+		}
+	}
+	//没有存在，向List添加新的Cell
+	if (!bIsAlreadyInList)
+	{
+		Node->Data->ContainedCells[3] = MakeShareable(Cell);
+		CellsList.Add(Node->Data->ContainedCells[3]);
+	}
+
+	//后左下
+	Cell = new FCell(Node->Center + FVector(Node->Size, -Node->Size, -Node->Size), Node->Size);
+	Cell->CellType |= 0x04;
+	for (auto c : CellsList)
+	{
+		if (*c == *Cell)//当前创建的Cell已经存在
+		{
+			Node->Data->ContainedCells[4] = c;
+			c->CellType |= Cell->CellType;
+			bIsAlreadyInList = true;
+			delete Cell;
+			break;
+		}
+	}
+	//没有存在，向List添加新的Cell
+	if (!bIsAlreadyInList)
+	{
+		Node->Data->ContainedCells[4] = MakeShareable(Cell);
+		CellsList.Add(Node->Data->ContainedCells[4]);
+	}
+	//后右下
+	Cell = new FCell(Node->Center + FVector(Node->Size, Node->Size, -Node->Size), Node->Size);
+	Cell->CellType |= 0x08;
+	for (auto c : CellsList)
+	{
+		if (*c == *Cell)//当前创建的Cell已经存在
+		{
+			Node->Data->ContainedCells[5] = c;
+			c->CellType |= Cell->CellType;
+			bIsAlreadyInList = true;
+			delete Cell;
+			break;
+		}
+	}
+	//没有存在，向List添加新的Cell
+	if (!bIsAlreadyInList)
+	{
+		Node->Data->ContainedCells[5] = MakeShareable(Cell);
+		CellsList.Add(Node->Data->ContainedCells[5]);
+	}
+	//后左上
+	Cell = new FCell(Node->Center + FVector(Node->Size, -Node->Size, Node->Size), Node->Size);
+	Cell->CellType |= 0x02;
+	for (auto c : CellsList)
+	{
+		if (*c == *Cell)//当前创建的Cell已经存在
+		{
+			Node->Data->ContainedCells[6] = c;
+			c->CellType |= Cell->CellType;
+			bIsAlreadyInList = true;
+			delete Cell;
+			break;
+		}
+	}
+	//没有存在，向List添加新的Cell
+	if (!bIsAlreadyInList)
+	{
+		Node->Data->ContainedCells[6] = MakeShareable(Cell);
+		CellsList.Add(Node->Data->ContainedCells[6]);
+	}
+	//后右上
+	Cell = new FCell(Node->Center + FVector(Node->Size, Node->Size, Node->Size), Node->Size);
+	Cell->CellType |= 0x01;
+	for (auto c : CellsList)
+	{
+		if (*c == *Cell)//当前创建的Cell已经存在
+		{
+			Node->Data->ContainedCells[7] = c;
+			c->CellType |= Cell->CellType;
+			bIsAlreadyInList = true;
+			delete Cell;
+			break;
+		}
+	}
+	//没有存在，向List添加新的Cell
+	if (!bIsAlreadyInList)
+	{
+		Node->Data->ContainedCells[7] = MakeShareable(Cell);
+		CellsList.Add(Node->Data->ContainedCells[7]);
+	}
 }
